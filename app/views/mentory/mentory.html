@@ -1,0 +1,189 @@
+<section class="section single-wrap" id="sectionbackground1">
+            <div class="container">
+             <div id="sidebar" class="col-md-4">
+
+                    <div class="boxes boxs">
+                            <div class="desiger-details text-center">
+                                <img ng-src="{{mentory.mentory.person.profileimage}}" class="img-circle" alt="">
+                                <h3><a ng-href="#/profile/{{mentory.mentory.personId}}">{{mentory.mentory.person.name}}</a></h3>
+                               	
+								<h4>{{mentory.mentory.person.job}}</h4>
+								<small><i id="iconsmall"class="fa fa-map-marker"></i>{{mentory.mentory.person.location}} &nbsp;&nbsp; </small>
+                            </div><!-- end designer -->
+                        </div><!-- end boxes -->
+
+                        <div class="boxes boxs">
+							
+                            <div class="item-price text-center">
+                                <p> {{mentory.mentory.cost | currency}} <span style="font-size: 15px; font-style: normal;"> por sesión.</span></p>
+                                                                
+                            <hr>
+                                <a class="btn btn-primary" ng-click="mentory.clickToOpen()" >Reservar  </a>
+
+
+									<!--Angular Modal for Reservation-->
+									<script type="text/ng-template" id="templateReservation">
+										<div class="ngdialog-message">
+											<h3>Reserva tu Mentoría</h3>
+											
+											Razón de la llamada <br><textarea type="text" style="height:150px; width: 100%" ng-model="reason" placeholder="Example: I admire your business and the growth I have seen - I'd like to discuss the importance you place on community involvement and how my company could benefit from it."></textarea><br><br>
+											Tiempo estimado de la llamada <br><input type="number" style="width: 80%;display:inline;" ng-model="estimatedTime" placeholder="15">  minutos.<br><br>
+											
+											Escoge 2 fechas en la que estás libre
+											<br><input type="datetime-local" style="width: 100%" ng-model="probDate1" required>
+											<br><input type="datetime-local" style="width: 100%" ng-model="probDate2" required>
+											
+											
+											
+
+										</div>
+										
+										<div class="ngdialog-buttons">
+											<button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog()">Cancelar</button>
+											<button type="submit" class="ngdialog-button ngdialog-button-primary" ng-click="reserveMentory()">Reservar</button>
+										</div>
+									</script>
+								
+								
+								<!--
+                                <a class="btn btn-default" ng-click="mentory.clickToOpen()">Horarios</a>
+								
+									
+									<script type="text/ng-template" id="templateReservation">
+										<div class="ngdialog-message">
+											<h3>Reserva tu Mentoría</h3>
+											
+											<p ng-show="theme">Test content for <code>{{theme}}</code></p>
+											<p ng-show="ngDialogId">Dialog Id: <code>{{ngDialogId}}</code></p>
+											<p class="data-passed-through" ng-show="ngDialogData.foo">Data passed through: <code>{{ngDialogData.foo}}</code></p>
+											<p ng-show="dialogModel.message">Scope passed through: <code>{{dialogModel.message}}</code></p>
+											
+
+										</div>
+										
+										<div class="ngdialog-buttons">
+											<button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog()">Cancelar</button>
+											<button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="openSecond()">Reservar</button>
+										</div>
+									</script>
+								-->
+
+                               <hr>
+                               <ul class="list-inline social">
+									<li><a ng-href="http://www.facebook.com/{{mentory.mentory.user.fb}}"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a ng-href="http://www.twitter.com/{{mentory.mentory.user.twitter}}"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a ng-href="http://{{mentory.mentory.user.linkedin}}"><i class="fa fa-linkedin"></i></a></li>
+								</ul>
+                                <hr>
+                                <ul class="list-inline">
+                                    <li><small><i class="fa fa-phone"></i> 193</small></li>
+                                    <li><small><i class="fa fa-comment-o"></i> 12</small></li>
+                                    
+                                </ul>
+
+                                
+                            </div><!-- end price -->
+                        </div><!-- end boxes -->
+
+                        <div class="content-after boxs">
+                            <div class="row">
+                                <div class="col-md-10 general-title">
+                                    <h4>Otras Mentorías Relacionadas <span class="hidden-xs"><a href="index.html">View all</a></span></h4>
+                                    <hr>
+                                </div><!-- end col -->
+                            </div><!-- end row -->
+                            
+                               <div class="row">
+                                <div class="col-md-4 col-sm-6 " ng-repeat="mentory in home.mentories | filter: 3 ">
+                                     <div class="item-box">
+                                <div class="item-media entry">
+                                    
+                                    <img ng-src="{{mentory.person.profileimage}}" alt="" class="img-responsive" ng-href="#/mentory/{{mentory.idmentory}}" >
+                                    
+                                </div><!-- end item-media -->
+                                <h4><a ng-href="#/mentory/{{mentory.idmentory}}">{{mentory.name}}</a></h4>
+									</div>
+                                </div><!-- end col -->
+
+                                
+                            </div><!-- end row -->
+                        </div><!-- end content after -->
+
+                        
+                      
+                    </div><!-- end sidebar -->
+            
+
+            <div class="container">  
+                <div class="row">
+                    <div id="singlewrapper" class="col-md-8">
+                        <div class="content-before">
+                            <div class="row">
+
+                                <div class="col-md-12 col-sx-12 cen-xs" id="titulomentoria">
+                                    <h3>{{mentory.mentory.name}}</h3>
+                                </div><!-- end col -->
+                            </div><!-- end row -->
+                        </div><!-- end content before -->
+
+
+
+                        <div class="content nopad">
+                            <div class="item-single-wrapper">
+                                <div class="item-box">
+                                    <div class="item-media text-center">
+                                <video  
+                                controls preload="auto" style="width:100%" height="364"
+                                poster="media/poster.jpg"
+                                >
+                                        <source ng-src="{{mentory.mentory.urlVideo}}" type='video/mp4' />
+                                        <source src="media/paul.webm" type='video/webm' />
+
+                                       <!-- <source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm' />
+                                        <source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg' />-->
+                                        <object type="application/x-shockwave-flash" data="media/flashfox.swf" width="1280" height="720">
+                                            <param name="movie" value="media/flashfox.swf">
+                                            <param name="allowFullScreen" value="true">
+                                            <param name="flashVars" value="autoplay=true&amp;controls=true&amp;fullScreenEnabled=true&amp;posterOnEnd=true&amp;loop=true&amp;poster=media/video.jpg&amp;src=video.m4v">
+                                            <embed src="media/flashfox.swf" width="1280" height="720" style="position:relative;" flashvars="autoplay=true&amp;controls=true&amp;fullScreenEnabled=true&amp;posterOnEnd=true&amp;loop=true&amp;poster=media/video.jpg&amp;src=video.m4v" allowfullscreen="true" wmode="transparent" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer_en">
+                                            <img alt="video" src="media/poster.jpg" style="position:absolute;left:0;" width="100%" >
+                                        </object>
+                                </video>
+                               
+                                    </div><!-- end item-media -->
+
+                                    <div class="item-desc">
+                                        <h1>Summary</h1>
+
+                                        <p style="white-space : pre-wrap"> {{mentory.mentory.description}}</p>
+											
+										 <div class="tags tags-categories text-rigth">
+                                        <br>
+                                        <a ng-repeat="category in mentory.mentory.categories" class="btn2 ">{{category.name}}</a> 
+                                        
+										</div>
+                                       
+
+                                    </div><!-- end item-desc -->
+                                </div><!-- end item-box -->
+                            </div><!-- end item-single-wrapper -->
+                        </div><!-- end content -->
+
+                       
+                    </div><!-- end singlewrapper -->
+
+
+                </div><!-- end row -->
+                 
+
+                <div class="content-message boxs">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1 text-center">
+                            <h2>Cada dia miles de mentores nos ayudan ha hacer mas grandes tus proyectos</h2>
+                            <a href="#" class="btn btn-default btn-lg">Consigue Copunes Mentory</a>
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end content message -->
+            </div><!-- end container -->
+	</div>
+</section>

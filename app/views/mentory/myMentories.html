@@ -1,0 +1,94 @@
+<section class="section single-wrap">
+	
+            <div class="container">
+				
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-sx-12 text-center">
+                            <h3>Mis Mentorías</h3>
+                            <div class="bread">
+                                <ol class="breadcrumb">
+                                  <li><a href="#">Home</a></li>
+                                  <li class="active">Mis Mentorías</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+					
+				<div class="content-before">
+                    <div class="row">						
+						<div class="col-md-12 col-sx-12 cen-xs">
+                            <form class="dropForm">
+                                <div class="input-prepend">
+                                    <div class="btn-group">
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Search anything here." ng-model="search.name">
+                                    <button class="btn btn-primary" tabindex="-1"><i class="fa fa-search"></i></button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end content before -->
+               
+                <div class="content boxs">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="storelist panel panel-info">
+                                <div class="panel-body">
+									
+                                    <div class="form-group row wow fadeIn" ng-repeat="mentoryScope in mentory.user.mentories | filter:search ">
+										
+                                        <div class="col-sm-2 col-xs-12">
+                                            <a ng-href="#/mentory/{{mentoryScope.idmentory}}" class="screenshot" data-gal="upload/item_12.jpg"><img class="img-responsive img-thumbnail" alt="" ng-src="{{mentory.user.profileimage}}"></a>
+                                        </div>
+										
+                                        <div class="col-sm-5 col-xs-12">
+                                            <h4><a ng-href="#/mentory/{{mentoryScope.idmentory}}">{{mentoryScope.name}}</a></h4>
+                                            <ul>
+                                                <li><a ng-href="#/profile/{{mentory.user.iduser}}"><i class="fa fa-user"></i> {{mentory.user.name}}</a></li>
+                                                <li><i class="fa fa-folder-open-o"></i>Categories: <a href="#" ng-repeat="category in mentoryScope.categories"> {{category.name}} </a></li>
+                                            </ul>
+                                        </div>
+										
+                                        <div class="col-sm-2 col-xs-12">
+                                            <h4>Details</h4>
+                                            <ul>
+												<li>{{mentoryScope.idmentory}}</li>
+                                                <li>Cost :  $ {{mentoryScope.cost }} per minute</li>
+                                                <li>Created : {{mentoryScope.created | date}}</li>
+                                                
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3 col-xs-12 text-center">
+                                            <ul>
+                                                
+												<li><a  class="btn btn-primary" ng-href="#/editmentory/{{mentoryScope.idmentory}}">Edit</a> 
+													<a  class="btn btn-danger" ng-click="mentory.deleteMentory(mentoryScope.idmentory)">Delete</a></li>
+                                                
+                                                <li>
+                                                    <div class="rating">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div><!-- end form-group -->       
+
+									<a class="btn btn-primary " tabindex="-1" href="#/newMentory" style="border-radius:30px"><i class="fa fa-plus"></i> Crear nueva mentoria</a>
+                                    
+                                </div><!-- end panel body -->
+                            </div><!-- end storelist -->
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+                </div><!-- end content -->
+
+               
+               
+            </div><!-- end container -->
+        </section>

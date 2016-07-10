@@ -1,0 +1,181 @@
+<section class="section1 single-wrap">
+
+            <div class="heroimage">
+                <div class="row">
+                    <img  style="width:100%; height:auto " src="upload/herotag.jpg">
+                </div>
+            </div>
+
+            
+    
+    
+    
+            <div class="col-lg-3 col-sm-3"><!--  Sidebar -->
+
+               <div class="row" style="background-color: #fafafa; padding: 20px; border: 1px solid #f2f2f2; padding:20px">
+                   
+                    <form class="dropForm">
+                                <div class="input-prepend">
+                                    <input type="text" class="form-control" placeholder="Busca una mentoría ..." ng-model="search.query">
+                                    <button class="btn btn-primary" tabindex="-1" ng-click="search.goTo()"><i class="fa fa-search"></i></button>
+                                </div>
+
+                    </form>
+
+                    <h3 style="font-family:futura-Medium">Filtro por precios</h3>
+
+                    <rzslider rz-slider-model="discover.searchCost"  rz-slider-options="discover.sliderOptions" rz-slider-high="discover.maxCost"></rzslider>
+
+                    <h3 style="font-family:futura-Medium">Categorías</h3>
+
+
+                    <div>
+
+                        <span ng-repeat="category in discover.categories | limitTo: 19" ng-click="discover.goToDiscover(category.name)">
+                          {{category.name}}
+                        <span><br>
+                    </div>
+
+                    
+
+
+
+
+
+                </div><!-- end Row -->
+
+            </div><!-- end Sidebar -->
+
+
+
+
+            <div class="container2" style="float:left">
+
+
+                <div class="content-before">
+                    <div class="row" style="height:50px">
+
+                        <div class="col-md-12 text-right hidden-xs">
+                            <div class="catalog-order">
+
+                							Ordenar por:
+                							<select name="orderby" class="selectpicker" ng-model="sortType">
+
+                								<option value="-created" selected>Nuevos</option>
+                								<option value="name" >Ordenar alfabeticamente</option>
+                							</select>
+                            </div>
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end content before -->
+
+
+
+                <div class="content">
+                    <div class="row">
+
+
+                        <div class="form-group row wow fadeIn"  style="background-color:#fafafa; border: 1px solid #f2f2f2; padding:15px">
+
+                                        <div class="col-sm-2 col-xs-12">
+                                            <a ng-click=''><img class="img-responsive img-circule"  style="border-radius:100%" src="https://s3-us-west-2.amazonaws.com/mentorybucket/companyimages/572a786f0b01b1ce128a831d/company.jpg" alt=""></a>
+                                        </div>
+                                        <div class="col-sm-7 col-xs-12">
+                                            <h4><a style="color:#000" ng-click=''>Director de Ventas en Mentory.co</a></h4>
+                                            <ul>
+                                                <li><i class="fa fa-user"></i> <strong>Trabaja en:</strong>   Departamento de ventas
+                                                    
+                                                </li>
+                                                <li><strong>Salario anual</strong> 25k</li>
+                                                <li><strong>BIO </strong> "Somos una empresa joven e inovadora con gran potencial de escalabilidad"</li>
+                                                
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3 col-xs-12 text-center">
+                                            <ul>
+                                                
+                                                
+                                                <ul>
+                                                    
+                                                    <li><a class="btn btn-primary btn-block" style="color:#fff" ng-click="">Aplicar</a></li>
+                                                </ul>
+                                                
+                                            </ul>
+                                        </div>
+                        </div><!-- end form-group -->
+                        
+                         <div class="form-group row wow fadeIn"  style="background-color:#fafafa; border: 1px solid #f2f2f2; padding:15px">
+
+                                        <div class="col-sm-2 col-xs-12">
+                                            <a ng-click=''><img class="img-responsive img-circule"  style="border-radius:100%" src="https://s3-us-west-2.amazonaws.com/mentorybucket/companyimages/572a786f0b01b1ce128a831d/company.jpg" alt=""></a>
+                                        </div>
+                                        <div class="col-sm-7 col-xs-12">
+                                            <h4><a style="color:#000" ng-click=''>Senior Developer en Mentory.co</a></h4>
+                                            <ul>
+                                                <li><i class="fa fa-user"></i> <strong>Trabaja en:</strong>   Departamento de TIC
+                                                    
+                                                </li>
+                                                <li><strong>Salario anual</strong> 20-18k</li>
+                                                <li><strong>BIO </strong> "Somos una empresa joven e inovadora con gran potencial de escalabilidad"</li>
+                                                
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3 col-xs-12 text-center">
+                                            <ul>
+                                                
+                                                
+                                                <ul>
+                                                    
+                                                    <li><a class="btn btn-primary btn-block" style="color:#fff" ng-click="">Aplicar</a></li>
+                                                </ul>
+                                                
+                                            </ul>
+                                        </div>
+                        </div><!-- end form-group -->
+
+                      </div>
+                </div>
+
+				<!--Pagination
+               <div class="content-after text-center boxs">
+
+						<div class="row">
+                        <div class="col-md-12">
+                            <nav class="pagination-wrapper">
+                                <ul class="pagination">
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li>
+                                        <a href="#" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div><!-- end content after -->
+
+
+                <div class="content-message boxs" style="background-color:#1BBC9B">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1 text-center">
+                            <!--<img stye="background-img responsive-img" src="upload/baner.jpg">-->
+
+                            <div class="Suscribete" style="background-color:#1BBC9B">
+                                    <h1 style="font-family: futura-Medium; color:#fff">¿Necesitas un mentor?</h1>
+                                    <button class="btn" style="background-color:#1BA39C; border-radius:30px; color:#fff">  Registrate y obten 7 dias gratis</button>
+
+
+                            </div>
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end content message -->
+            </div><!-- end container -->
+
+            
+
+        </section>

@@ -1,0 +1,12 @@
+<div class="row">
+         <ot-layout props="{animate:true}">
+                <ot-subscriber ng-repeat="stream in live.streams track by $index" 
+                    stream="stream"
+                    session = "live.session"
+                    props="{style: {nameDisplayMode: 'off'}}">
+                </ot-subscriber>
+                <ot-publisher id="publisher" 
+                    props="{style: {nameDisplayMode: 'off'}, frameRate: 30}">
+                </ot-publisher>
+          </ot-layout>
+</div>

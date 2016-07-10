@@ -1,0 +1,119 @@
+<section class="section single-wrap" style="background-color: #fafafa">
+            <div class="container">
+
+
+                <div ng-cloak>
+                      <md-content style="background-color:#fafafa">
+
+                        <md-tabs md-dynamic-height md-border-bottom>
+
+                          <md-tab label="Perfil" >
+
+                            <md-content class="md-padding">
+                              <h4 class="md-display-2" style="font-family:futura-Medium; ">Tus ajustes de <a ng-href="#profile/{{app.loggedInUser.iduser}}" style="color:#4FC3F7">Perfil</a></h4>
+
+
+                               <settings-component></settings-component>
+
+                            </md-content>
+                          </md-tab>
+                            
+                          <md-tab label="BIO" >
+
+                            <md-content class="md-padding">
+                              
+
+
+                               <settingsbio-component></settingsbio-component>
+
+                            </md-content>
+                          </md-tab>
+
+
+
+                          <md-tab label="Banco">
+                            <md-content class="md-padding">
+
+                              <h4 class="md-display-2 text-center" style="font-family:futura-Medium">Hacemos más facil la manera de gestionar tu dinero</h4>
+
+
+                              <div class="col-md-6">
+
+                              <div class="card-visa-form">
+
+                                <div class="visa-form">
+
+                                  <input type="text" placeholder="Pon aqui tu numero de tarjeta">
+                                  <input type="password" placeholder="CVV">
+                                  <input type="date" >
+
+                                </div>
+
+                              </div>
+                                <div class="payment-methods" style="margin-top:5vh">
+                                      <ul class="list-inline text-left">
+                                              <li><a href="#"><img src="upload/payment_01.png" alt=""></a></li>
+                                              <li><a href="#"><img src="upload/payment_02.png" alt=""></a></li>
+                                              
+                                        </ul>
+                                </div>
+
+                            </div><!--End col-->
+
+                            <div class="col-md-6" ng-if="main.user.isMentor">
+
+                              <div class="card-momey-form">
+
+                                <div class="money-choose">
+
+                                  <h5 style="font-family:futura-Medium">Te ayudamos a elegir tu precio</h5>
+                                    <h6 style="font-family:futura-Medium; color:#9E9E9E">Si tienes experiencia como Coach, Asesor o Mentor</h6>
+                                    <h6 style="font-family:futura-Medium; color:#9E9E9E">Dependiendo de tu edad y años de experiencia, asi como de tu especialidad</h6>
+
+                                  <rzslider rz-slider-model="main.cost"  rz-slider-options="main.sliderOptions"></rzslider>
+
+                                      <h3>Tu costo por minuto es de {{main.user.cost | currency}}</h3>
+                                      <button class="btn btn-primary" style="height: 30px; border-radius:30px" ng-click="main.saveCost()"><i class="fa fa-send"></i> Guardar Costo</button>
+                                </div>
+
+                              </div>
+
+                            </div><!--End col-->
+
+                            </md-content>
+                          </md-tab><!--End MdTab Dinero-->
+
+
+
+
+                          
+
+
+                          <md-tab label="Feedback">
+                            <md-content class="md-padding">
+                              <h1 class="md-display-2 text-center">Tu opinión siempre nos importa</h1>
+                                    <input type="text" placeholder="¿En que podemos mejorar?">
+                                    <button class="btn btn-primary"> Enviar feedback</button>
+                            </md-content>
+                          </md-tab>
+
+                          <md-tab label="Cerrar Sesión" ng-click="main.logOut()">
+                            <md-content class="md-padding">
+                              <h1 class="md-display-2 text-center">¡Nos vemos pronto!</h1>
+                            </md-content>
+                          </md-tab>
+
+                        </md-tabs>
+                      </md-content>
+                    </div>
+
+
+
+
+               <a href="#live" id="boton-live" class="hidden-xs hidden-sm"><img src="upload/logoWS.png" style="width:100%;"></a>
+
+
+
+
+            </div><!-- end container -->
+        </section>

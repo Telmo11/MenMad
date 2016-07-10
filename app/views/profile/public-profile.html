@@ -1,0 +1,429 @@
+<section class="section1 single-wrap" id="sectionbackground1">
+
+            <div class="item-box">
+                <div class="item-media query" >
+                    <div class="row">
+                        <canvas id="myCanvas" width="800" height="250" style="width: 100%"></canvas>
+                    </div><!-- end div -->
+                    <div class="magnifier-front">
+                        <div  class="item-front" ng-if="profile.validate">
+                               <a ngf-select="profile.upload(profile.picFile, profile.picFile.name)"  ng-model="profile.picFile" accept="image/*" class="btn btn-primary">Cambiar</a>
+                        </div><!-- end item-front -->
+                    </div><!-- end magnifier -->
+                </div><!-- end item-box -->
+            </div>
+
+
+            <div class="container">
+
+
+             <div id="sidebar" class="col-md-4 col-sm-4" style="top:-130px;">
+
+
+                    <div class="boxes boxs">
+                            
+                            <div ng-if="profile.validate">
+                                <buttom href="#/dashboard"><i class="fa fa-gear"></i></buttom>
+                            </div>
+                            
+                            <div class="desiger-details text-center">
+                                <img ng-src="{{profile.user.profileimage}}" class="img-circle" alt="">
+                                <h2 style="color:#000"><a ng-href="#/profile/{{profile.user.iduser}}" style="color:#000">{{profile.user.name}}</a></h2>
+								<p>{{profile.user.job}}</p>
+								<small><i id="iconsmall"class="fa fa-map-marker"></i>{{profile.user.location}} &nbsp;&nbsp; </small>
+
+                                <div class="item-price text-center">
+
+                                    <ul class="list-inline social">
+                                        <li><a ng-href="http://www.facebook.com/{{profile.user.fb}}"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a ng-href="http://www.twitter.com/{{profile.user.twitter}}"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a ng-href="http://{{profile.user.linkedin}}"><i class="fa fa-linkedin"></i></a></li>
+                                    </ul>
+
+                                </div>
+
+                            </div><!-- end designer -->
+                  	</div><!-- end boxes -->
+
+                        <div class="boxes boxs">
+                            <div class="item-price text-center">
+
+                                <p> {{profile.user.cost * 50 | currency}} <span style="font-size: 15px; font-style: normal;"> por sesión.</span>
+                                 <md-tooltip md-direction="right">
+          							Una sesión consta de 50 minutos.
+        						</md-tooltip>
+                                </p>
+
+                                <br>
+
+                                <button class="btn btn-primary" style="border-radius:30px" ng-click="profile.goToReservation()" >Llamar al Mentor </button>
+
+                                <br>
+
+                                <ul class="list-inline social">
+                                    <li><small><i class="fa fa-phone"></i> 193</small></li>
+                                    <li><small><i class="fa fa-comment-o"></i> 12</small></li>
+
+                                </ul>
+								<ul class="tags list-inline social">
+									<a ng-repeat="category in profile.user.categories" class="btn2" >{{category.name}} </a>
+                                </ul>
+
+
+                            </div><!-- end price -->
+                        </div><!-- end boxes -->
+                 
+                        <div ng-if="profile.validate" class="boxes boxs" style="height: 300px;">
+                            
+                            <div >
+                                
+                                 <div class="colaborators-company" style="width:100%; height:100px; background-color:#fafafa; border: 1px solid #f0f0f0">
+
+                                       <div class="col-lg-12 logocollection-2 text-center">
+
+                                                <h3 style="font-family:futura-Medium; color:#000">Invita a tus amigos y gana creditos para Mentory*</h3>
+
+                                                        <div class="space">
+
+                                                           <input type="email"  style="width:100%; left:30vw" class="form-control text-center" placeholder="invita 10 amigos para ganar 30$" />
+
+                                                        </div>
+
+
+
+
+                                    
+                                    <button class="btn btn-primary" style="height: 50px; border-radius:30px"  id="home-search-button"><h6 style="font-family: futura-Medium; color: #fff;"><i class="fa fa-send"></i> </h6></button>
+
+                                </div>
+
+
+                                </div>
+
+                            </div>
+                            
+                        </div><!-- end boxes -->
+
+
+
+                </div><!-- end sidebar -->
+
+
+            <div>
+                <div ng-cloak class="col-lg-8 col-sm-8">
+                      <md-content id="content-tabs" >
+
+                         <md-tabs  md-dynamic-height md-border-bottom md-selected="profile.indexTab">
+
+                          <md-tab ng-click="profile.goToAnchor()" label="BIO">
+                            <md-content class="md-padding">
+                              <div id="singlewrapper"  >
+
+                                <div class="content-before">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sx-12 cen-xs " id="titulomentoria">
+                                            <i class="fa fa-job"></i>
+                                            <h3 style="fomt-family:futura-medium">{{profile.user.job}}</h3>
+                                            <img ng-src="{{profile.user.imgcompany}}"  alt="" class="img-responsive"  style="border-radius:100%; width: 15%;float: right;" >
+                                        </div><!-- end col -->
+                                    </div><!-- end row -->
+                               </div>
+
+                                <div class="content nopad">
+                                    <div class="item-single-wrapper">
+
+
+                                        <div class="item-box">
+
+                                            <div class="item-desc" >
+												<p ng-bind-html="profile.user.description"></p>
+
+                                            </div><!-- end item-desc -->
+
+                                        </div><!-- end item-box -->
+
+
+
+
+                                            </div><!-- end item-single-wrapper -->
+                                        </div><!-- end content -->
+
+
+                                    </div><!-- end singlewrapper -->
+                            </md-content>
+                          </md-tab>
+
+                          <md-tab ng-click="profile.goToAnchor()" name="tabtest" label="Llamar al Mentor 1-1" >
+                            <md-content class="md-padding">
+
+
+                            <div id="singlewrapper" ng-if="profile.user.isMentor" >
+
+                                <div class="content-before">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sx-12 cen-xs " id="titulomentoria">
+                                            <h3>Reserva una cita con {{profile.user.name}}</h3>
+                                            <img src="upload/logoBS.png" class="imagen-resposive" style="float:right">
+                                        </div><!-- end col -->
+                                    </div><!-- end row -->
+                               </div>
+
+                                <div class="content nopad">
+                                    <div class="item-single-wrapper">
+
+
+                                        <div class="item-box">
+                                            <div class="item-desc">
+
+
+                                                ¿Cual es tu dolor? Escribe una breve introducción <br><textarea type="text" style="height:150px; width: 100%" ng-model="profile.book.reason" placeholder="Example: I admire your business and the growth I have seen - I'd like to discuss the importance you place on community involvement and how my company could benefit from it." ng-required="true"></textarea><br><br>
+                                                ¿Durante cuanto tiempo quieres hablar?: <select type="number" style="width: 80%;display:inline;" ng-model="profile.book.estimatedTime" placeholder="15" ng-required="true">
+                                                    <option value='' disabled selected><i class="arrow-down"></i>Escoge tu tiempo</option>
+                                                    <option>15 minutos</option>
+                                                    <option>30 minutos</option>
+                                                    <option>50 minutos</option>
+                                                    <option>120 minutos</option>
+                                                    <option>170 minutos</option>
+                                                </select>
+                                                  .<br><br>
+
+                                                <p><i class="fa fa-clock-o"></i>Escoge 2 fechas en la que estás libre</p>
+                                                <p>Propuesta 1. </p>
+                                                <input type="datetime-local" ng-model="profile.book.probDate1" ng-min="profile.minDate" ng-required="true">
+                                                <p>Propuesta 2. </p>
+                                                <input type="datetime-local" ng-model="profile.book.probDate2" ng-min="profile.minDate" ng-required="true"><br>
+
+
+
+
+                                                <button type="button" class="btn-lg btn-primary" ng-click="profile.reservation()" style="width:100%; margin-top: 20px">Reservar</button>
+                                            </div>
+                                        </div><!-- end item-box -->
+
+
+
+
+                                            </div><!-- end item-single-wrapper -->
+                                        </div><!-- end content -->
+
+
+                                    </div><!-- end singlewrapper -->
+
+
+                            </md-content>
+                          </md-tab>
+
+                             <!-- MD TAB: MENTORIAS -->
+                             
+                         <!---<md-tab ng-click="profile.goToAnchor()" label="Mentorias">
+                            <md-content class="md-padding">
+
+
+                              <div id="singlewrapper" ng-if="profile.user.isMentor" >
+
+                                <div class="content-before">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sx-12 cen-xs " id="titulomentoria">
+                                            <h3>Mentorias Activas</h3>
+                                        </div>
+                                    </div>
+                               </div>
+
+                                <div class="content nopad">
+                                    <div class="item-single-wrapper">
+
+
+                                        <div class="item-box">
+
+                                            <div class="item-desc" ng-repeat="mentory in profile.user.mentories">
+
+
+
+
+                                                <h2><a ng-href="#/mentory/{{mentory.idmentory}}">{{mentory.name}}</a></h2>
+                                                <h3> $ {{mentory.cost}} por sesión</h3>
+                                                <h5>Created {{mentory.created | date }}</h5>
+
+                                                <p>{{mentory.description | limitTo: 300}} ...</p><br>
+
+
+                                                <h5>Categories: </h5>
+                                                <ul class="tags list-inline social">
+                                                    <a ng-repeat="category in mentory.categories" class="btn2" >{{category.name}} </a>
+                                                </ul>
+
+                                            </div>
+
+                                            <div class="item-desc">
+
+                                            <a class="btn btn-default" ng-if="profile.showLoadMoreButton" ng-click="profile.loadMentories()">Load more ..</a>
+                                            </div>
+                                        </div>
+
+
+
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                            </md-content>
+                          </md-tab>---->
+                             
+                         
+
+
+                          <md-tab ng-click="profile.goToAnchor()" label="Reviews">
+                            <md-content class="md-padding">
+
+                              <div id="singlewrapper" ng-if="profile.user.isMentor" >
+
+                                <div class="content-before">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sx-12 cen-xs " id="titulomentoria">
+                                            <h3>Reviews</h3>
+                                        </div><!-- end col -->
+                                    </div><!-- end row -->
+                               </div>
+
+                                <div class="content nopad">
+                                    <div class="item-single-wrapper">
+
+
+                                        <div class="item-box">
+
+                                            <div class="item-desc" ng-repeat="mentory in profile.user.mentories">
+
+
+
+
+                                                <h2><a ng-href="#/mentory/{{mentory.idmentory}}">{{mentory.name}}</a></h2>
+                                                <h3> $ {{mentory.cost}} por sesión</h3>
+                                                <h5>Created {{mentory.created | date }}</h5>
+
+                                                <p>{{mentory.description | limitTo: 300}} ...</p><br>
+
+
+                                                <h5>Categories: </h5>
+                                                <ul class="tags list-inline social">
+                                                    <a ng-repeat="category in mentory.categories" class="btn2" >{{category.name}} </a>
+                                                </ul>
+
+                                            </div><!-- end item-desc -->
+
+                                            <div class="item-desc">
+
+                                            <a class="btn btn-default" ng-if="profile.showLoadMoreButton" ng-click="profile.loadMentories()">Load more ..</a>
+                                            </div>
+                                        </div><!-- end item-box -->
+
+
+
+
+                                            </div><!-- end item-single-wrapper -->
+                                        </div><!-- end content -->
+
+
+                                    </div><!-- end singlewrapper -->
+
+                            </md-content>
+                          </md-tab>
+
+
+
+                        </md-tabs>
+                      </md-content>
+                    
+                        <img src="upload/login.jpg">
+                    </div>
+                
+                
+                    
+
+				</div>
+                
+                
+
+
+            </div><!-- end container -->
+    
+            <div class="content-message boxs" style="background-color:#1BBC9B">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1 text-center">
+                            <!--<img stye="background-img responsive-img" src="upload/baner.jpg">-->
+
+                            <div class="Suscribete" style="background-color:#1BBC9B">
+                                    <h1 style="font-family: futura-Medium; color:#fff">Un Mentor en tu bolsillo</h1>
+                                    <button class="btn" style="background-color:#1BA39C; border-radius:30px; color:#fff">  Necesitas ayuda?</button>
+
+
+                            </div>
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end content message -->
+
+
+            <div class="content-message boxs" style="background: #fafafa;">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1 text-center">
+                            <!--<img stye="background-img responsive-img" src="upload/baner.jpg">-->
+
+                            <div class="logoclients">
+                                    <h1 style="font-family:futura-Medium; color:#000">Otros Mentores</h1>
+
+
+
+
+                                    <div class="col-lg-12" ng-repeat="person in profile.users | orderBy : 'job' : 1 " ng-click='profile.goToProfile(user.iduser)' style="top:2vh; max-width:200px; margin:3vh; border: 1px solid #f0f0f0;    background-color: #fafafa; padding:10px">
+
+
+                                       
+                                        <div class="item-box" >
+
+                                            <div class="item-media entry">
+
+
+                                                <div class="theme__button" ng-style="{'background-image': 'url(' + person.imgcompany + ')', 'background-size': '50px 50px', 'background-position': 'center' }">
+
+                                                </div>
+                                               <img ng-src="{{person.profileimage}}"  alt="" class="img-responsive"  style="width:100%" >
+                                                <div class="magnifier2">
+
+                                                    <div class="item-author">
+
+
+
+
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+
+
+                                            <h4 style="font-family:futura-Medium"><a ng-href="#/profile/{{user.iduser}}/#tab-reserv">{{person.name}}</a></h4>
+                                            <p style="color:#000;" class="item-author-titule text-center">{{person.job}}</p>
+
+                                            <button class="btn btn-primary" style="border-radius:30px; margin-top:2vh;" ng-click="home.goToProfile(user.iduser)"><i class="fa fa-phone"></i>Llamar</button>
+
+
+
+
+                                    </div><!-- end item-box -->
+
+                             
+                                </div><!-- end col Mentores.01-->
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end content message -->
+        </section>

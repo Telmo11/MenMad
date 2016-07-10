@@ -1,0 +1,85 @@
+ <section class="section single-wrap">
+            <div class="container">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-sx-12 text-center">
+                            <h3>Update Mentory</h3>
+                            <div class="bread">
+                                <ol class="breadcrumb">
+                                  <li><a href="#/">Home</a></li>
+                                  <li class="active">Edit Mentory</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="content boxs">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="page-content">
+                                <div class="row">
+                                   
+                                        
+                                            
+
+                                            <div class="login-form register-form">
+                                                <form method="post" role="login" class="row">
+                                                    
+												
+														
+                                                        <div class="form-group">
+                                                            <label>Mentory Name (*)</label>
+                                                            <input type="text" name="text" ng-model="mentory.mentory.name" required class="form-control" placeholder="" />
+                                                           
+                                                        </div>
+														<div class="form-group">
+                                                            <label>URL to video (*)</label>
+                                                            <input type="text" name="text" ng-model="mentory.mentory.urlVideo" required class="form-control" placeholder="" />
+                                                           
+                                                        </div>
+													
+																											
+														<div class="form-group">
+															<label>Mentory Description </label>
+															<textarea class="form-control" style="height:300px" ng-model="mentory.mentory.description" placeholder="Add your description here.."></textarea>
+														</div>
+														
+													                                                    
+                                                        <div class="form-group">
+                                                            <label>Cost per minute</label>
+                                                            <input type="text" ng-model="mentory.mentory.cost" class="form-control" placeholder="$ 4 " />
+                                                            
+                                                        </div>
+                                                  
+                                                    
+                                                        <div class="form-group">
+                                                            <label>Categories</label>
+                                                             <tags-input  ng-model="mentory.categoriesTags" style="height:50px; display: block" placeholder="Add a new expertise area .." add-from-autocomplete-only="true" on-tag-removing="mentory.deleteCategory($tag)" on-tag-adding="mentory.addCategory($tag)">
+																<auto-complete source="mentory.loadItems($query)"></auto-complete>
+															</tags-input>
+                                                        </div>
+													
+                                                   		
+                                                    <div class="col-md-7">
+                                                    	<button type="submit" name="go" ng-click="mentory.updateMentory()" class="btn btn-primary">Update Now</button>
+                                                    </div>
+                                                </form>
+												
+                                            </div><!-- end login-form -->
+											
+											
+                                       
+                                   
+                                </div><!-- end row -->
+                            </div>
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+                </div><!-- end content -->
+
+                <br>
+
+               
+            </div><!-- end container -->
+        </section>

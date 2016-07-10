@@ -1,0 +1,370 @@
+<section class="section123 single-wrap">
+
+
+        <div class="col-lg-12" style="background: #f3f3f3; ">
+
+            <div class="">
+
+
+            <div class="preguntas-home">
+
+                    <div class="col-md-1"></div>
+
+                   <div class="col-md-10" style="top:10vh; margin-bottom: 15px"><!-- Start form -->
+
+                                    
+
+
+                                    <h2 style="color:#000"><strong>{{app.loggedInUser.name}}</strong>, ¿Cúal es tu problema o que necesitas?</h2>
+                                    <md-autocomplete
+
+                                        md-selected-item="home.selectedItem"
+                                        md-search-text="home.searchText"
+                                        md-items="item in home.querySearch(home.searchText)"
+                                        md-item-text="item.name"
+                                        md-min-length="0"
+                                        placeholder=" Escribe aqui lo que necesitas..."
+                                        style="height:50px; background-color:#000; color:#fff; width:60%;float:left">
+                                        <md-item-template>
+                                          <span md-highlight-text="home.searchText" md-highlight-flags="^i">{{item.name}}</span>
+                                        </md-item-template>
+                                        <md-not-found>
+                                          Estamos buscando coincidencias con :{{home.searchText}}
+                                        </md-not-found>
+                                    </md-autocomplete>
+
+                                    <select  ng-model="home.location" type="text" style="height:50px; background-color:#EBEEF1; color:#000; width:25%; float:left" placeholder="En que ciudad?">
+                                        <option value='' disabled selected><i class="arrow-down"></i>Elige tu Ciudad</option>
+                                        <option >Madrid</option>
+                                        <option>Barcelona</option>
+                                        <option>Ciudad De Mexico</option>
+                                    </select>
+                                    
+                                    <button class="" style="height: 50px;width: 15%;float: right;padding: 10px;background: #1bbc9b;
+                                    border: transparent;" ng-click="home.goTo()" id=""><h6 style="font-family: futura-Medium; color: #fff;"><i class="fa fa-search"></i></h6></button>
+
+
+
+                    </div>
+
+                    <div class="col-lg-1" style="top:9vh">
+
+                        
+
+                                <!-- end form -->
+
+                     </div>
+
+
+
+
+                     
+
+            </div>
+
+
+
+             <div class="row">
+                <div class="col-md-12 " class="categories-icon-bg" id="col6-category">
+                    <div class="page-title public-profile-title">
+                        <div class="row">
+                            <div class="col-sx-12 text-center">
+
+                            <div class="tag-bg">
+
+                                <div class="col-md-2 text-left" id="categoriescollection" ng-repeat="category in home.categories | limitTo: 10" >
+
+                                    <a href="#/discover/{{category.name}}" class="tooltip-top" data-tooltip="{{category.name}}">
+
+                                    <span ng-switch="category.name">
+                                        <img style="bottom:0.5vh"class="img-responsive" id="caticon" ng-switch-when="Derecho" ng-src="images/iconcategories/law.jpg" >
+                                        <img  style="bottom:0.5vh" class="img-responsive" id="caticon" ng-switch-when="Tecnología" ng-src="images/iconcategories/tecnologia.jpg" >
+                                        <img class="img-responsive" id="caticon" ng-switch-when="Gaming" ng-src="images/iconcategories/gaming.jpg" >
+                                        <img class="img-responsive" id="caticon" ng-switch-when="Business" ng-src="images/iconcategories/Business.jpg" >
+                                        <img class="img-responsive" id="caticon" ng-switch-when="Diseño" ng-src="images/iconcategories/orange.jpg" >
+                                        <img class="img-responsive" id="caticon" ng-switch-when="Medicina" ng-src="images/iconcategories/medicina.jpg" >
+                                        <img class="img-responsive" id="caticon" ng-switch-when="Motivación" ng-src="images/iconcategories/top.jpg" >
+                                        <img class="img-responsive" id="caticon" ng-switch-when="Redes" ng-src="images/iconcategories/marketing.jpg" >
+                                        <img class="img-responsive" id="caticon" ng-switch-when="Marketing" ng-src="images/iconcategories/ecommerce.jpg" >
+                                        <img class="img-responsive" id="caticon" ng-switch-when="Lifestyle" ng-src="images/iconcategories/imagen.jpg" >
+                                        <p style="margin-top:1vh"></p>
+
+                                    </span>
+
+                                    </a>
+
+
+
+                                </div><!-- end categoricollection -->
+
+                                </div><!-- end tga.bg -->
+
+
+
+
+
+                            </div><!-- end col.12 -->
+
+
+
+                        </div><!-- end row -->
+
+
+
+
+
+
+
+
+
+                        </div><!-- end publicprofile -->
+                    </div><!-- end Col-category -->
+
+
+
+                </div>
+                
+                
+
+                <p class="text-center" style="margin-top:1vh; color:#000">*Busca nuevas ideas, estrategias y enfoques con los mejores asesores en coaching, tecnologia, inovación, empleo. <strong>Tus datos siempre estaran seguros</strong></p>
+
+            </div><!-- end Pregunta-Homes -->
+         </div><!-- end COl  PRINCIPAL-->
+
+
+
+            <div class="col-lg-9 col-sm-9">
+
+                <div class="col-lg-12 col-sm-12" style="margin-top:1vh"><!-- Start COntainer 23 -->
+                <div class="">
+
+                            <div class="container23" style=" margin-right:200px; ;padding:20px; width:100%">
+
+
+                                <h5 class="color:#000">Los mas recomendados para ti</h5>
+
+                                <div class="col-lg-12 col-sm-12" ng-repeat="user in home.users | orderBy : 'created' : 1 | limitTo:15 :0 " ng-click='home.goToProfile(user.iduser)' style="top:2vh; max-width:200px; max-height: 350px; margin:3vh; border: 1px solid #f0f0f0;    background-color: #fafafa; padding:10px"><!-- Start col Mentores.01-->
+
+
+
+                                     
+                                        <div class="item-box" >
+
+                                            <div class="item-media entry">
+
+
+                                                <div class="theme__button" ng-style="{'background-image': 'url(' + user.imgcompany + ')', 'background-size': '50px 50px', 'background-position': 'center' }">
+
+                                                </div>
+                                               <img ng-src="{{user.profileimage}}"  alt="" class="img-responsive"  style="width:100%" >
+                                                <div class="magnifier2">
+
+                                                    <div class="item-author">
+
+
+
+
+
+                                                    </div><!-- end author -->
+
+                                                </div>
+                                            </div><!-- end item-media -->
+
+
+
+
+                                            <h4 style="font-family:futura-Medium"><a ng-href="#/profile/{{user.iduser}}/#tab-reserv">{{user.name}}</a></h4>
+                                            <p style="color:#9E9E9E;" class="item-author-titule text-center">{{user.job}}</p>
+
+                                            <div style="bottom:0">
+
+
+                                            <button class="btn btn-primary" style="border-radius:30px; margin-top:2vh;" ng-click="home.goToProfile(user.iduser)"><i class="fa fa-phone"></i>Llamar
+                                                <md-tooltip style="font-size:10px" md-direction="bottom">
+          							Reserva su ayuda mediante videollamada.
+        						              </md-tooltip>
+
+                                            </button><!-- end form -->
+
+
+                                            </div>
+
+
+
+
+                                    </div><!-- end item-box -->
+
+                                  
+                                </div><!-- end col Mentores.01-->
+
+
+
+
+
+
+                        </div>
+
+
+                    </div>
+                 </div>
+
+
+
+
+            </div><!-- end Row -->
+
+
+
+
+
+
+
+            <div class="container1">
+
+
+
+
+
+
+                <div class="content" style="background-color:#fafafa">
+
+
+
+
+
+
+                    <div class="row">
+
+                        <br>
+                        <hr>
+
+                        <h3>Filtra aqui tu busqueda</h3>
+
+                      
+
+
+                        <hr style="color:000">
+
+
+
+                                    <label style="    background: #eee; border-radius: 30px; border: solid 0.5px #fafafa; font-size: 12px;" ng-repeat="category in home.categories | limitTo: 50" ><a href="#/discover/{{category.name}}">{{category.name}}</a>
+
+
+
+
+
+
+
+
+
+
+
+                                    </label><!-- end categoricollection -->
+
+
+                        <hr>
+
+                        <img style="width:30%;float: right;" src="images/iconcategories/madrid.png"><h3 >Madrid</h3>
+                        <hr>
+                        <img  style="float: right;width:30%" src="images/iconcategories/barcelona.png"><h3 >Barcelona</h3>
+                        <hr>
+                        <img style="float: right;width:30%" src="images/iconcategories/mexico.png"><h3>Ciudad De Mexico</h3>
+                        <hr>
+                        <div class="content-message boxs" style="background-color:#1BBC9B">
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-1 text-center">
+                                    <!--<img stye="background-img responsive-img" src="upload/baner.jpg">-->
+
+                                    <div class="Suscribete" style="background-color:#1BBC9B">
+                                            <h1 style="font-family: futura-Medium; color:#fff">¿Buscas trabajo?</h1>
+                                            <button href="#jobs" class="btn" style="background-color:#1BA39C; border-radius:30px; color:#fff">  Jobs @mentory.co </button>
+
+
+                                    </div>
+                                </div>
+                            </div><!-- end row -->
+                        </div><!-- end content message -->
+
+
+
+
+
+
+
+
+
+                    </div><!-- end Row -->
+
+
+                </div>
+
+
+
+            </div><!-- end container -->
+            
+            
+            <div class="content-message boxs" style="background: url(upload/login.jpg)">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1 text-center">
+                            <!--<img stye="background-img responsive-img" src="upload/baner.jpg">-->
+
+                            
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end content message -->
+
+               <div class="colaborators-company" style="width:100%; height:100px; background-color:#fafafa; border: 1px solid #f0f0f0">
+
+                   <div class="col-lg-12 logocollection-2 text-center">
+
+                            <h3 style="font-family:futura-Medium; color:#000">Encuentra la ayuda que necesitas. Crea tu nueva empresa.</h3>
+                    </div>
+
+
+            </div>
+
+
+                <div class="content-message boxs">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1 text-center">
+                            <!--<img stye="background-img responsive-img" src="upload/baner.jpg">-->
+
+                            <div class="logoclients">
+
+                                    <img src="assetsLanding/img/phone.jpg">
+
+
+
+                            </div>
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end content message -->
+                
+            <div class="colaborators-company" style="width:100%; height:100px; background-color:#fafafa; border: 1px solid #f0f0f0">
+
+                   <div class="col-lg-12 logocollection-2 text-center">
+
+                            <h3 style="font-family:futura-Medium; color:#000">Invita a tus amigos y gana creditos para Mentory*</h3>
+
+                                    <div class="space">
+
+									   <input type="email"  style="width:100%; left:30vw" class="form-control text-center" placeholder="invita 10 amigos para ganar 30$" />
+
+                                    </div>
+
+
+
+
+                                    <h3 style="font-family:futura-Medium; color:#000">Facil, Online y Directo</h3>
+                                    <button class="btn btn-primary" style=" width:30%; height: 50px; border-radius:30px" ng-click="home.goTo()" id="home-search-button"><h6 style="font-family: futura-Medium; color: #fff;"><i class="fa fa-send"></i> Buscar mentores</h6></button>
+
+                    </div>
+
+
+            </div>
+
+        
+
+
+
+        </section>

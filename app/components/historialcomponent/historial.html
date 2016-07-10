@@ -1,0 +1,261 @@
+ <div class="content boxs">
+
+
+            <div class="row">
+            
+                        <div class="col-md-12 col-sm-12">
+
+                          <div ng-cloak><!-- START TABS: 1.PETICIONES 2.reservas--> 
+                                  <md-content>
+                                    <md-tabs md-dynamic-height md-border-bottom>
+
+                                      <md-tab label="Peticiones 1-1" style="font-family:futura-medium">
+                                        <md-content class="md-padding">
+                                          
+
+                                           <div class="storelist sales panel panel-info">
+                                            <h1 style=" font-family:futura-Medium;font-style:italic; background-color: #1bbc9b; padding: 10px; color:#fff; border-radius:5px">Lista de peticiones.</h1>
+                                     <div class="panel-body">
+                  
+                                     <div class="form-group row wow fadeIn" ng-repeat="booking in $ctrl.booksToYou | orderBy : 'booking.created' : 1 " style=" border: 0.5px solid #f2f2f2; padding: 10px; background-color: #fafafa;">                      
+                                         <div class="col-sm-6 col-xs-12 bookingcard">
+                                           <div class="col-sm-3">
+                                            <a ng-href="#/profile/{{booking.person.iduser}}" >
+                                                  <img ng-src="{{booking.person.profileimage}}" alt="" class="img-circle">
+
+                                            </a>
+                                            
+                                            
+                                            
+                                           </div>
+                                           
+                                           <div class="col-sm-9">
+                                            <h4><strong> Tu cliente es : </strong>{{booking.person.name}}</h4>
+
+                                            <h6 class="" style="font-family:futura-Book;  color:#000;">{{booking.created | date : "MMMM dd,yyyy 'a las' hh:mm" }}</h6>
+                                               
+                                             <strong style="color:#9E9E9E">Necesita ayuda con :</strong>
+                                             <p ng-text-truncate="booking.reason"   ng-tt-chars-threshold="150" style="white-space: pre-wrap"></p>
+                                               
+                                            <strong style="color:#9E9E9E">Ganas :</strong><h4 style=" background-color:# fafafa; color:green; font-size:25px; font-family: Helvetica; margin:2px, position: absolute; bottom: -9vh" class="text-left">{{booking.cost*booking.estimatedTime - booking.cost*booking.estimatedTime*.2 | currency}}</h4>
+                                    
+                        
+                                            
+                                           </div>                                              
+                                        </div>
+                                        <div class="col-sm-4 col-xs-12">
+                                            <h4 style= "font-family:Futura-Medium">Estas son las fechas propuestas</h4>
+                                            <ul>
+                                                
+
+
+                                                <li ng-if=" booking.status=='created' "><i class="fa fa-clock-o"></i> <strong>Propuesta (1):</strong> <br> {{booking.probDate1 | date : "MMMM dd,yyyy 'a las' hh:mm" : $ctrl.user.timezone}}<input ng-if=" booking.status=='created' " type="radio" ng-model="booking.confirmeddate" ng-value="booking.probDate1"></li>
+                                                
+
+
+                                                <li ng-if=" booking.status=='created' "><i class="fa fa-clock-o"></i> <strong>Propuesta (2):</strong> <br> {{booking.probDate2 | date : "MMMM dd,yyyy 'a las' hh:mm" : $ctrl.user.timezone}}<input ng-if="booking.status=='created'" type="radio" ng-model="booking.confirmeddate" ng-value="booking.probDate2"></li>
+
+                                                <li ng-if=" !(booking.status=='created') "><i class="fa fa-clock-o"></i><strong> Fecha Confirmada: </strong> {{booking.confirmeddate | date : "MMMM dd,yyyy 'a las' hh:mm" : $ctrl.user.timezone}}</li>
+                                      
+                                                <li> </li>
+                                                
+                                                
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-2 col-xs-12 text-center">
+                                            <ul>
+                                                
+                                                <li ng-switch on="booking.status">
+                                                  <div ng-switch-when="created">
+
+                            <strong>Estado de la cita: </strong><span style="color:red">Por confirmar</span>
+                            <p>¿ Quieres ayudar a {{booking.person.name}}</p>
+                            <a href="" ng-click="$ctrl.confirm(booking)" class="btn btn-primary btn-block">Confirmar</a>
+                            
+                                                  </div>
+                                                  
+                                                  <div ng-switch-when="confirmed">
+                                                    <strong>Status: </strong><span style="color:blue" >Confirmada</span>
+                                                    <p>
+                                                    	<a ng-href="#/live/{{booking.sessionid}}">Ir a sesión.</a>
+                                                    </p>
+                                                  </div>
+                                                  
+                                                  <div ng-switch-when="done">
+                                                    <strong>Status: </strong><span style="color:green" >Terminada</span>
+                                                  </div>
+                                                  
+                                                </li>
+                                             
+                                            </ul>
+                                        </div>
+                      
+                                    </div><!-- end form-group -->  
+                 
+                                 <hr>
+                  
+                                   
+
+                                  
+                                </div><!-- end panel body -->
+                            </div><!-- end storelist -->
+
+
+
+
+
+                                          
+                                        </md-content>
+                                      </md-tab><!-- end TAB.1 --> 
+
+
+
+
+
+                                      <md-tab label="Reservas 1-1"><!-- START TAB.2 -->
+                                        <md-content class="md-padding">
+                                          
+                                            <div class="storelist sales panel panel-info">
+                              <h1 style=" font-family:futura-Medium; background-color: #4FC3F7; padding: 10px; color:#fff">Tus Reservas</h1>
+                                <div class="panel-body">
+                  
+                                     <div class="form-group row wow fadeIn" ng-repeat="booking in $ctrl.booksFromYou | orderBy : 'booking.created' : 1 " style=" border: 0.5px solid #f2f2f2; padding: 10px; background-color: #fafafa;">
+                                        <div class="col-sm-6 col-xs-12 bookingcard">
+                                           <div class="col-sm-3">
+                                            <a ng-href="#/profile/{{booking.booked.iduser}}" >
+                        <img ng-src="{{booking.booked.profileimage}}" alt="" class="img-circle">
+                                            </a>
+                                            
+                                            
+                                           </div>
+                                           
+                                           <div class="col-sm-9">
+                                            <h4><strong> Has Reservado a: </strong>{{booking.booked.name}}</h4>
+                                               <strong>{{booking.booked.job}}</strong> como tu Mentor!
+                                            
+                        <p ng-text-truncate="booking.reason"   ng-tt-chars-threshold="150" style="white-space: pre-wrap"></p>   
+                                            
+                                                <div class="rating">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    </div>
+                                           </div>                                              
+                                        </div>
+                                        
+                                        <div class="col-sm-4 col-xs-12" id="detallesbook">
+                                            <h4><strong>Detalles de la Cita</strong></h4>
+                                            <ul>
+                                                <li><i class="fa fa-clock-o"></i><strong> Cita creada : 
+                                                </strong>  {{booking.created | date : "MMMM dd,yyyy 'a las' hh:mm" }}</li>
+                                                <li ng-if=" !booking.status=='confirmed' "><i class="fa fa-clock-o"></i><strong> Propuesta (1):</strong> {{booking.probDate1 | date : "MMMM dd,yyyy 'a las' hh:mm" : $ctrl.user.timezone}}</li>
+                        						<li ng-if=" !booking.status=='confirmed' "><i class="fa fa-clock-o"></i><strong> Propuesta (2):</strong> {{booking.probDate2 | date : "MMMM dd,yyyy 'a las' hh:mm" : $ctrl.user.timezone}}</li>
+                                               	<li ng-if=" booking.status=='confirmed' "><i class="fa fa-clock-o"></i><strong> Fecha Confirmada: </strong> {{booking.confirmeddate | date : "MMMM dd,yyyy 'a las' hh:mm" : $ctrl.user.timezone}}</li>
+                                                <li><i class="fa fa-dollar"></i> Costo Estimado : {{booking.cost*booking.estimatedTime | currency}}</li>
+                                                
+                                                
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="col-sm-2 col-xs-12 text-center">
+                                            <ul>
+                                                
+                                                <li ng-switch on="booking.status">
+                                                  <strong>Status:</strong> 
+                                                  <span style="color:red" ng-switch-when="created">Por confirmar</span>
+                                                  
+                                                  <span style="color:blue" ng-switch-when="confirmed">Confirmada
+                                                  <p>
+                                                    	<a ng-href="#/live/{{booking.sessionid}}">Ir a sesión.</a>
+                                                    </p>
+                                                  </span>
+                                                  
+                                                  <span style="color:green" ng-switch-when="done">Terminada</span>
+                                                </li>
+                                              
+                                            </ul>
+                                        </div>
+                      
+                                    </div><!-- end form-group -->  
+                 
+                                 <hr>
+                  
+                                   
+
+                                  
+                                </div><!-- end panel body -->
+                            </div><!-- end storelist -->
+                                          
+                                        </md-content>
+                                      </md-tab><!-- end TAB.2 --> 
+
+                                       <md-tab label="Calendar">
+                                            <md-content class="md-padding">
+                                            <h1 style="font-family:futura-Medium" class="md-display-2">Calendar events </h1>
+                                              
+                                              <calendar></calendar>
+                                              
+                                            </md-content>
+                                        </md-tab>
+                                      
+                                    </md-tabs>
+                                  </md-content>
+                                </div>
+
+                         
+              
+                          
+              
+              
+              
+              
+                        </div><!-- end col -->
+                    </div><!-- end ROW-TABS -->
+
+                    
+                   <!--
+                  <div class="row checkdate col-lg-3" style="float:right">
+                        <div class="col-md-3 col-sx-12 cen-xs">
+                            <form class="dropForm">
+                                <div class="input-prepend">
+                                    <div class="btn-group">
+                                        <select name="orderby" class="selectpicker">
+                                          <option>All Sales</option>
+                                          <option>Shop Sales</option>
+                                          <option>Referanse Sales</option>
+                                          <option>Taxes</option>
+                                          <option>Refunds</option>
+                                      </select>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="11/13/15">&nbsp;&nbsp;&nbsp;
+                                    <input type="text" class="form-control" placeholder="11/02/16">&nbsp;&nbsp;&nbsp;
+                                    <button class="btn btn-primary" tabindex="-1">Check Sales</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="row totalprice text-center col-lg-3">
+                        <div class="col-md-4">
+                           
+                            <h4>Llamadas Realizadas - <strong>1245</strong></h4>
+                        </div>
+
+				
+						
+                        <div class="col-md-4">
+                            <h4>Total Conseguido - <strong>$22.099</strong></h4>
+                        </div>
+
+                        <div class="col-md-4">
+                            <h4>Total Pagado - <strong>$18.419</strong></h4>
+                        </div>
+
+                    </div>
+                    
+                    -->
+
+                    
+  </div><!-- end content -->

@@ -1,0 +1,281 @@
+<section class=" single-wrap">
+            <div class="">
+                
+                
+
+               <div class="content1 boxs">
+                    <div class="row">
+						
+                        <div class="col-md-8">
+                            
+                            <form class="uploaditem">
+                           			
+                           	<!--<div class="space">
+									 <p ng-if="$ctrl.user.isMentor">¡Eres mentor!</p>
+									 <p ng-if="!$ctrl.user.isMentor">¡No eres mentor :(!</p>
+                                   <switch id="enabled" name="enabled" ng-model="$ctrl.user.isMentor" disabled="true" class="green"></switch>
+                                    
+                                </div>-->
+								
+                            			
+								<div class="space">
+                                    
+                                    <img src="https://s3-us-west-2.amazonaws.com/mentorybucket/profileimages/avatar.jpg" style="max-width:70px" alt="" class="img-circle">
+                                    
+									<label>Escoge tu imagen de perfil y recortala. </label>
+									<button ngf-select ng-model="$ctrl.picFile" accept="image/*" class="btn btn-primary">
+										Selecciona tu foto</button>
+									
+									<br>
+									<div ng-if="$ctrl.picFile">
+									<div  ngf-drop ng-model="$ctrl.picFile" ngf-pattern="image/*" class="cropArea">
+										
+										<img-crop image="$ctrl.picFile  | ngfDataUrl"                 
+										result-image="$ctrl.croppedDataUrl" ng-init="$ctrl.croppedDataUrl=''" result-image-size="300" result-image-format="image/jpeg">
+										</img-crop>
+									
+									</div>
+									<br>
+									<div>
+										<label>Previsualización:</label>
+										 <img ng-src="{{$ctrl.croppedDataUrl}}" style="display:inline" />
+									</div>
+										
+									</div>	
+																										
+									<button ng-if="$ctrl.picFile" ng-click="$ctrl.upload($ctrl.croppedDataUrl, $ctrl.picFile.name)" class="btn btn-info">Subir</button> 
+									
+									<span class="progress" ng-show="$ctrl.progress >= 0">
+									  <div style="width:{{$ctrl.progress}}%" ng-bind="$ctrl.progress + '%'"></div>
+									</span>
+									 
+									<span ng-show="result">¡Subida exitosa!</span>
+									<span class="err" ng-show="$ctrl.errorMsg">{{$ctrl.errorMsg}}</span>
+									
+                                </div>
+                                
+                                
+                                
+                                <div class="space">
+                                    
+									<label>Escoge tu imagen de compañia. (En caso de no tener usaremos el logo de mentory) </label>
+									<button ngf-select ng-model="$ctrl.picFile2" accept="image/*" class="btn btn-primary">
+										Selecciona tu foto</button>
+									
+									<br>
+									<div ng-if="$ctrl.picFile2">
+									<div  ngf-drop ng-model="$ctrl.picFile2" ngf-pattern="image/*" class="cropArea">
+										
+										<img-crop image="$ctrl.picFile2  | ngfDataUrl"                 
+										result-image="$ctrl.croppedDataUrl2" ng-init="$ctrl.croppedDataUrl2=''" result-image-size="300" result-image-format="image/jpeg">
+										</img-crop>
+									
+									</div>
+									<br>
+									<div>
+										<label>Previsualización:</label>
+										 <img ng-src="{{$ctrl.croppedDataUrl2}}" style="display:inline" />
+									</div>
+										
+									</div>	
+																										
+									<button ng-if="$ctrl.picFile2" ng-click="$ctrl.uploadImgCompany($ctrl.croppedDataUrl2, $ctrl.picFile.name)" class="btn btn-info">Subir</button> 
+									
+									<span class="progress" ng-show="$ctrl.progress2 >= 0">
+									  <div style="width:{{$ctrl.progress}}%" ng-bind="$ctrl.progress2 + '%'"></div>
+									</span>
+									 
+									<span ng-show="result">¡Subida exitosa!</span>
+									<span class="err" ng-show="$ctrl.errorMsg2">{{$ctrl.errorMsg2}}</span>
+									
+                                </div>
+
+                                <div class="space">
+                                    <label>Nombre Completo : </label>
+									<input type="text" ng-model="$ctrl.user.name" class="form-control" placeholder="Enter your name" />
+                                    
+                                </div>
+								
+								 
+								
+								<div class="space">
+                                    <label>Trabajo & Años de Experiencia: </label>
+									<input type="text" ng-model="$ctrl.user.job" class="form-control" placeholder="En que trabajas?" />
+									
+                                </div>
+
+                                <div class="space">
+                                    <label>Teléfono : </label>
+                                    <input type="text" ng-model="$ctrl.user.phone" class="form-control" placeholder="(55)5555 55555">    
+                                </div>
+
+								<div class="space">
+                                    <label>Ubicación : </label>
+                                    <input type="text" ng-model="$ctrl.user.location" class="form-control" placeholder="Ex: Mexico">    
+                                </div>
+								
+								<div class="space">
+                                    <label>Zona Horaria : </label>
+                                    <select ng-model="$ctrl.user.timezone" >
+																<option timeZoneId="1" gmtAdjustment="GMT-12:00" useDaylightTime="0" value="-1200">(GMT-12:00) International Date Line West</option>
+																<option timeZoneId="2" gmtAdjustment="GMT-11:00" useDaylightTime="0" value="-1100">(GMT-11:00) Midway Island, Samoa</option>
+																<option timeZoneId="3" gmtAdjustment="GMT-10:00" useDaylightTime="0" value="-10">(GMT-10:00) Hawaii</option>
+																<option timeZoneId="4" gmtAdjustment="GMT-09:00" useDaylightTime="1" value="-0900">(GMT-09:00) Alaska</option>
+																<option timeZoneId="5" gmtAdjustment="GMT-08:00" useDaylightTime="1" value="-0800">(GMT-08:00) Pacific Time (US & Canada)</option>
+																<option timeZoneId="6" gmtAdjustment="GMT-08:00" useDaylightTime="1" value="-0800">(GMT-08:00) Tijuana, Baja California</option>
+																<option timeZoneId="7" gmtAdjustment="GMT-07:00" useDaylightTime="0" value="-0700">(GMT-07:00) Arizona</option>
+																<option timeZoneId="8" gmtAdjustment="GMT-07:00" useDaylightTime="1" value="-0700">(GMT-07:00) Chihuahua, La Paz, Mazatlan</option>
+																<option timeZoneId="9" gmtAdjustment="GMT-07:00" useDaylightTime="1" value="-0700">(GMT-07:00) Mountain Time (US & Canada)</option>
+																<option timeZoneId="10" gmtAdjustment="GMT-06:00" useDaylightTime="0" value="-0600">(GMT-06:00) Central America</option>
+																<option timeZoneId="11" gmtAdjustment="GMT-06:00" useDaylightTime="1" value="-0600">(GMT-06:00) Central Time (US & Canada)</option>
+																<option timeZoneId="12" gmtAdjustment="GMT-06:00" useDaylightTime="1" value="-0600">(GMT-06:00) Guadalajara, Mexico City, Monterrey</option>
+																<option timeZoneId="13" gmtAdjustment="GMT-06:00" useDaylightTime="0" value="-0600">(GMT-06:00) Saskatchewan</option>
+																<option timeZoneId="14" gmtAdjustment="GMT-05:00" useDaylightTime="0" value="-0500">(GMT-05:00) Bogota, Lima, Quito, Rio Branco</option>
+																<option timeZoneId="15" gmtAdjustment="GMT-05:00" useDaylightTime="1" value="-0500">(GMT-05:00) Eastern Time (US & Canada)</option>
+																<option timeZoneId="16" gmtAdjustment="GMT-05:00" useDaylightTime="1" value="-0500">(GMT-05:00) Indiana (East)</option>
+																<option timeZoneId="17" gmtAdjustment="GMT-04:00" useDaylightTime="1" value="-0400">(GMT-04:00) Atlantic Time (Canada)</option>
+																<option timeZoneId="18" gmtAdjustment="GMT-04:00" useDaylightTime="0" value="-0400">(GMT-04:00) Caracas, La Paz</option>
+																<option timeZoneId="19" gmtAdjustment="GMT-04:00" useDaylightTime="0" value="-0400">(GMT-04:00) Manaus</option>
+																<option timeZoneId="20" gmtAdjustment="GMT-04:00" useDaylightTime="1" value="-0400">(GMT-04:00) Santiago</option>
+																<option timeZoneId="21" gmtAdjustment="GMT-03:30" useDaylightTime="1" value="-0330">(GMT-03:30) Newfoundland</option>
+																<option timeZoneId="22" gmtAdjustment="GMT-03:00" useDaylightTime="1" value="-0300">(GMT-03:00) Brasilia</option>
+																<option timeZoneId="23" gmtAdjustment="GMT-03:00" useDaylightTime="0" value="-0300">(GMT-03:00) Buenos Aires, Georgetown</option>
+																<option timeZoneId="24" gmtAdjustment="GMT-03:00" useDaylightTime="1" value="-0300">(GMT-03:00) Greenland</option>
+																<option timeZoneId="25" gmtAdjustment="GMT-03:00" useDaylightTime="1" value="-0300">(GMT-03:00) Montevideo</option>
+																<option timeZoneId="26" gmtAdjustment="GMT-02:00" useDaylightTime="1" value="-0200">(GMT-02:00) Mid-Atlantic</option>
+																<option timeZoneId="27" gmtAdjustment="GMT-01:00" useDaylightTime="0" value="-0100">(GMT-01:00) Cape Verde Is.</option>
+																<option timeZoneId="28" gmtAdjustment="GMT-01:00" useDaylightTime="1" value="-0100">(GMT-01:00) Azores</option>
+																<option timeZoneId="29" gmtAdjustment="GMT+00:00" useDaylightTime="0" value="0000">(GMT+00:00) Casablanca, Monrovia, Reykjavik</option>
+																<option timeZoneId="30" gmtAdjustment="GMT+00:00" useDaylightTime="1" value="0000">(GMT+00:00) Greenwich Mean Time : Dublin, Edinburgh, Lisbon, London</option>
+																<option timeZoneId="31" gmtAdjustment="GMT+01:00" useDaylightTime="1" value="0100">(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</option>
+																<option timeZoneId="32" gmtAdjustment="GMT+01:00" useDaylightTime="1" value="0100">(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague</option>
+																<option timeZoneId="33" gmtAdjustment="GMT+01:00" useDaylightTime="1" value="0100">(GMT+01:00) Brussels, Copenhagen, Madrid, Paris</option>
+																<option timeZoneId="34" gmtAdjustment="GMT+01:00" useDaylightTime="1" value="0100">(GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb</option>
+																<option timeZoneId="35" gmtAdjustment="GMT+01:00" useDaylightTime="1" value="0100">(GMT+01:00) West Central Africa</option>
+																<option timeZoneId="36" gmtAdjustment="GMT+02:00" useDaylightTime="1" value="0200">(GMT+02:00) Amman</option>
+																<option timeZoneId="37" gmtAdjustment="GMT+02:00" useDaylightTime="1" value="0200">(GMT+02:00) Athens, Bucharest, Istanbul</option>
+																<option timeZoneId="38" gmtAdjustment="GMT+02:00" useDaylightTime="1" value="0200">(GMT+02:00) Beirut</option>
+																<option timeZoneId="39" gmtAdjustment="GMT+02:00" useDaylightTime="1" value="0200">(GMT+02:00) Cairo</option>
+																<option timeZoneId="40" gmtAdjustment="GMT+02:00" useDaylightTime="0" value="0200">(GMT+02:00) Harare, Pretoria</option>
+																<option timeZoneId="41" gmtAdjustment="GMT+02:00" useDaylightTime="1" value="0200">(GMT+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius</option>
+																<option timeZoneId="42" gmtAdjustment="GMT+02:00" useDaylightTime="1" value="0200">(GMT+02:00) Jerusalem</option>
+																<option timeZoneId="43" gmtAdjustment="GMT+02:00" useDaylightTime="1" value="0200">(GMT+02:00) Minsk</option>
+																<option timeZoneId="44" gmtAdjustment="GMT+02:00" useDaylightTime="1" value="0200">(GMT+02:00) Windhoek</option>
+																<option timeZoneId="45" gmtAdjustment="GMT+03:00" useDaylightTime="0" value="0300">(GMT+03:00) Kuwait, Riyadh, Baghdad</option>
+																<option timeZoneId="46" gmtAdjustment="GMT+03:00" useDaylightTime="1" value="0300">(GMT+03:00) Moscow, St. Petersburg, Volgograd</option>
+																<option timeZoneId="47" gmtAdjustment="GMT+03:00" useDaylightTime="0" value="0300">(GMT+03:00) Nairobi</option>
+																<option timeZoneId="48" gmtAdjustment="GMT+03:00" useDaylightTime="0" value="0300">(GMT+03:00) Tbilisi</option>
+																<option timeZoneId="49" gmtAdjustment="GMT+03:30" useDaylightTime="1" value="0330">(GMT+03:30) Tehran</option>
+																<option timeZoneId="50" gmtAdjustment="GMT+04:00" useDaylightTime="0" value="0400">(GMT+04:00) Abu Dhabi, Muscat</option>
+																<option timeZoneId="51" gmtAdjustment="GMT+04:00" useDaylightTime="1" value="0400">(GMT+04:00) Baku</option>
+																<option timeZoneId="52" gmtAdjustment="GMT+04:00" useDaylightTime="1" value="0400">(GMT+04:00) Yerevan</option>
+																<option timeZoneId="53" gmtAdjustment="GMT+04:30" useDaylightTime="0" value="0430">(GMT+04:30) Kabul</option>
+																<option timeZoneId="54" gmtAdjustment="GMT+05:00" useDaylightTime="1" value="0500">(GMT+05:00) Yekaterinburg</option>
+																<option timeZoneId="55" gmtAdjustment="GMT+05:00" useDaylightTime="0" value="0500">(GMT+05:00) Islamabad, Karachi, Tashkent</option>
+																<option timeZoneId="56" gmtAdjustment="GMT+05:30" useDaylightTime="0" value="0530">(GMT+05:30) Sri Jayawardenapura</option>
+																<option timeZoneId="57" gmtAdjustment="GMT+05:30" useDaylightTime="0" value="0530">(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi</option>
+																<option timeZoneId="58" gmtAdjustment="GMT+05:45" useDaylightTime="0" value="0545">(GMT+05:45) Kathmandu</option>
+																<option timeZoneId="59" gmtAdjustment="GMT+06:00" useDaylightTime="1" value="0600">(GMT+06:00) Almaty, Novosibirsk</option>
+																<option timeZoneId="60" gmtAdjustment="GMT+06:00" useDaylightTime="0" value="0600">(GMT+06:00) Astana, Dhaka</option>
+																<option timeZoneId="61" gmtAdjustment="GMT+06:30" useDaylightTime="0" value="0630">(GMT+06:30) Yangon (Rangoon)</option>
+																<option timeZoneId="62" gmtAdjustment="GMT+07:00" useDaylightTime="0" value="0700">(GMT+07:00) Bangkok, Hanoi, Jakarta</option>
+																<option timeZoneId="63" gmtAdjustment="GMT+07:00" useDaylightTime="1" value="0700">(GMT+07:00) Krasnoyarsk</option>
+																<option timeZoneId="64" gmtAdjustment="GMT+08:00" useDaylightTime="0" value="0800">(GMT+08:00) Beijing, Chongqing, Hong Kong, Urumqi</option>
+																<option timeZoneId="65" gmtAdjustment="GMT+08:00" useDaylightTime="0" value="0800">(GMT+08:00) Kuala Lumpur, Singapore</option>
+																<option timeZoneId="66" gmtAdjustment="GMT+08:00" useDaylightTime="0" value="0800">(GMT+08:00) Irkutsk, Ulaan Bataar</option>
+																<option timeZoneId="67" gmtAdjustment="GMT+08:00" useDaylightTime="0" value="0800">(GMT+08:00) Perth</option>
+																<option timeZoneId="68" gmtAdjustment="GMT+08:00" useDaylightTime="0" value="0800">(GMT+08:00) Taipei</option>
+																<option timeZoneId="69" gmtAdjustment="GMT+09:00" useDaylightTime="0" value="0900">(GMT+09:00) Osaka, Sapporo, Tokyo</option>
+																<option timeZoneId="70" gmtAdjustment="GMT+09:00" useDaylightTime="0" value="0900">(GMT+09:00) Seoul</option>
+																<option timeZoneId="71" gmtAdjustment="GMT+09:00" useDaylightTime="1" value="0900">(GMT+09:00) Yakutsk</option>
+																<option timeZoneId="72" gmtAdjustment="GMT+09:30" useDaylightTime="0" value="0930">(GMT+09:30) Adelaide</option>
+																<option timeZoneId="73" gmtAdjustment="GMT+09:30" useDaylightTime="0" value="0930">(GMT+09:30) Darwin</option>
+																<option timeZoneId="74" gmtAdjustment="GMT+10:00" useDaylightTime="0" value="1000">(GMT+10:00) Brisbane</option>
+																<option timeZoneId="75" gmtAdjustment="GMT+10:00" useDaylightTime="1" value="1000">(GMT+10:00) Canberra, Melbourne, Sydney</option>
+																<option timeZoneId="76" gmtAdjustment="GMT+10:00" useDaylightTime="1" value="1000">(GMT+10:00) Hobart</option>
+																<option timeZoneId="77" gmtAdjustment="GMT+10:00" useDaylightTime="0" value="1000">(GMT+10:00) Guam, Port Moresby</option>
+																<option timeZoneId="78" gmtAdjustment="GMT+10:00" useDaylightTime="1" value="1000">(GMT+10:00) Vladivostok</option>
+																<option timeZoneId="79" gmtAdjustment="GMT+11:00" useDaylightTime="1" value="1100">(GMT+11:00) Magadan, Solomon Is., New Caledonia</option>
+																<option timeZoneId="80" gmtAdjustment="GMT+12:00" useDaylightTime="1" value="1200">(GMT+12:00) Auckland, Wellington</option>
+																<option timeZoneId="81" gmtAdjustment="GMT+12:00" useDaylightTime="0" value="1200">(GMT+12:00) Fiji, Kamchatka, Marshall Is.</option>
+																<option timeZoneId="82" gmtAdjustment="GMT+13:00" useDaylightTime="0" value="1300">(GMT+13:00) Nuku'alofa</option>
+															</select>    
+                                </div>
+
+                                 
+
+
+                            
+                                
+                                
+                               
+								
+								
+                            </form>
+                        </div><!-- end col -->
+						
+						<div class="col-md-4">
+
+							
+                            <form class="uploaditem">
+								
+								<div class="space">
+                                    <label>Areas de Mentoria </label>
+									
+									<tags-input  ng-model="$ctrl.categoriesTags" style="height:200px; display: block" placeholder="Agrega una area de experiencia .." add-from-autocomplete-only="true" on-tag-removing="$ctrl.deleteCategory($tag)" on-tag-adding="$ctrl.addCategory($tag)">
+										<auto-complete source="$ctrl.loadItems($query)"></auto-complete>
+									</tags-input>
+									
+                                </div>
+                                <p><strong>Ejemplos:</strong> Marketing, Diseño, Derecho, Startups, TI, Dirección..</p>
+                                <img src="upload/iconos-list.png">
+								    
+                            </form>
+
+                            <div class="widget-title">
+                                <h4>Redes Sociales</h4>
+                            </div><!-- end widget-title -->
+                            <form class="uploaditem">
+								
+								 <div class="space">
+                                    <label>Linkedin : </label>
+                                    <input type="text" class="form-control" ng-model="$ctrl.user.linkedin" placeholder="http://">    
+                                </div>
+								
+                                <div class="space">
+                                    <label>Facebook : </label>
+                                    <input type="text" class="form-control" ng-model="$ctrl.user.fb" placeholder="Escribe tu nombre de facebook..">    
+                                </div>
+
+                                <div class="space">
+                                    <label>Twitter : </label>
+                                    <input type="text" class="form-control" ng-model="$ctrl.user.twitter" placeholder="Escribe tu nombre de usuario de twitter..">    
+                                </div>
+                                <div class="space">
+                                    <label>Sitio Web : </label>
+                                    <input type="text" ng-model="$ctrl.user.website" class="form-control" placeholder="http://">    
+                                </div>
+                                
+                                
+                            </form>
+							
+							
+                        </div><!-- end col -->
+                        
+                        
+                         <button ng-click="$ctrl.update()" class="btn btn-primary">Actualizar Perfil</button>
+                                
+                        ¿Quieres borrar tu cuenta de Mentory? Click <a ng-click="$ctrl.deleteUser()">aquí</a>.
+                        
+
+                    </div><!-- end row -->
+                </div><!-- end content -->
+                
+               
+
+                
+               
+                <br>
+
+            </div><!-- end container -->
+        </section>
